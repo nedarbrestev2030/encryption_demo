@@ -32,10 +32,16 @@ def main():
     public_key = load_public_key('my_public_key.pem')
 
     # Create a secret message and print it to the screen
+    message = b'Be sure to drink your Ovaltine.'
+    print(f'Unencrypted message:\n{message}\n\n')
 
     # Encrypt your message
+    encrypted_msg = encrypt_message(message, public_key)
+    print(f'Encrypted message:\n{encrypted_msg}\n\n')
 
     # Write the encrypted message to a file
+    with open('encrypted_message.bin', 'wb') as file:
+        file.write(encrypted_msg)
 
     pass
 
